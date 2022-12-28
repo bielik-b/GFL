@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пациенты</title>
+</head>
+<body>
+    <h1 th:text="${doctor.name}"></h1>
+    <table>
+      <thead>
+      <tr>
+        <th>№ </th>
+        <th>ФИО</th>
+        <th>Пол</th>
+        <th>Дата Рождения</th>
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="p : ${doctor.patients}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.gender}"></td>
+        <td th:text="${p.dob}"></td>
+        <td><a th:href="@{patients-update/{id}(id=${p.id})}">Редактировать</a></td>
+        <td><a th:href="@{patients-delete/{id}(id=${p.id})}">Удалить</a></td>
+
+      </tr>
+      </tbody>
+    </table>
+    <p><a href="/patients-create">Добавить пациента</a> </p>
+</body>
+</html>

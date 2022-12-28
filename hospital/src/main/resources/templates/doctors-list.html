@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список докторов</title>
+</head>
+<body>
+    <div  th:switch="${doctors}">
+        <h2 th:case="null">Доктора не найдены!</h2>
+        <div th:case="*">
+            <table>
+                <thead>
+                <tr>
+                    <th>№ </th>
+                    <th>ФИО</th>
+                    <th>Специализация</th>
+                    <th>Телефон</th>
+                    <th></th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="doctor : ${doctors}">
+                    <td th:text="${doctor.id}"></td>
+                    <td th:text="${doctor.name}"></td>
+                    <td th:text="${doctor.specialization}"></td>
+                    <td th:text="${doctor.phone}"></td>
+                    <td><a th:href="@{doctor-update/{id}(id=${doctor.id})}">Редактировать</a></td>
+                    <td><a th:href="@{doctor-delete/{id}(id=${doctor.id})}">Удалить</a></td>
+                    <td><a th:href="@{doctor-patients/{id}(id=${doctor.id})}">Показать пациентов</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/doctor-create">Добавить доктора</a> </p>
+    </div>
+</body>
+</html>

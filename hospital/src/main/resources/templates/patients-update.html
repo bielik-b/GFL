@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать пациента</title>
+</head>
+<body>
+<form action="#"  th:action="@{/patients-update}" th:object="${patients}" method="post" >
+    <label for="name">ФИО</label>
+    <input type="text" th:field="*{name}" id="name">
+    <label for="gender">Пол</label>
+    <input type="text" th:field="*{gender}" id="gender">
+    <label for="dob">Телефон</label>
+    <input type="text" th:field="*{dob}" id="dob">
+    <input type="submit" value="Редактировать Пациента">
+</form>
+</body>
+</html>
