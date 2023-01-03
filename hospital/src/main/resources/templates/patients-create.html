@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Создать пациента</title>
 </head>
 <body>
-    <form action="#"  th:action="@{/patients-create}" th:object="${patients}" method="post" >
+    <form action="#"  th:action="@{/patients-create}" th:object="${patient}" method="post" >
       <label for="name">ФИО</label>
       <input type="text" th:field="*{name}" id="name">
       <label for="gender">Пол</label>
       <input type="text" th:field="*{gender}" id="gender">
-      <label for="dob">Телефон</label>
+      <label for="dob">Дата Рождения</label>
       <input type="text" th:field="*{dob}" id="dob">
       <input type="submit" value="Создать Пациента">
     </form>

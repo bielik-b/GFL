@@ -23,13 +23,13 @@ public class PatientsController {
     @PostMapping("/patients-create")
     public String createPatient(Patient patient){
         patientsService.createPatient(patient);
-        return "redirect:/doctor-patients";
+        return "redirect:/doctors";
     }
 
     @GetMapping("/patients-delete/{id}")
     public String deletePatient(@PathVariable Integer id){
         patientsService.deleteById(id);
-        return "redirect:/doctor-patients";
+        return "redirect:/doctor-patients/{doctor_id}";
     }
 
     @GetMapping("/patients-update/{id}")

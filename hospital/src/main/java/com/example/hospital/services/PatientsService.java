@@ -1,12 +1,9 @@
 package com.example.hospital.services;
 
-import com.example.hospital.entities.Doctor;
 import com.example.hospital.entities.Patient;
 import com.example.hospital.repozitories.PatientsRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @AllArgsConstructor
